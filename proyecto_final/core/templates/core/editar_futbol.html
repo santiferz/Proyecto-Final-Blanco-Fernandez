@@ -1,0 +1,24 @@
+{% extends 'core/base.html' %}
+{% block contenido_central %}
+
+<h1>Formulario - Agregar equipo</h1>
+
+{% if miFormularioFutbol.errors %}
+
+<p style="color: red;"> Estan mal los datos, revisar</p>
+
+{% endif %} 
+
+<form action="" method="POST">{% csrf_token %} 
+
+    <table>
+
+        {{ miFutbolForm.as_table }}
+
+    </table>
+
+    <input type="submit", value="Enviar">
+
+    </form>
+
+{% endblock %}

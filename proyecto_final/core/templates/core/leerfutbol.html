@@ -1,0 +1,22 @@
+{% extends 'core/base.html' %}
+
+{% load static %} 
+
+{% block contenido_central %}
+
+<h1>Equipos registrados de futbol</h1>
+    
+<ul>
+    {% for p in futbol %} 
+    <li>{{p}}</li>
+    <button>
+        <a href="{% url 'eliminar_futbol' p.id %}">Eliminar </a>
+        <a href="{% url 'editar_futbol' p.id %}">Editar</a>
+    </button>
+    <br>
+    {% endfor %}
+</ul>
+<p>
+    <a href="FormularioFutbol">Agregar</a>
+</p>
+{% endblock %}

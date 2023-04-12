@@ -1,0 +1,31 @@
+{% extends 'core/base.html' %}
+{% block contenido_central %}
+
+<h1>Equipos registrados de futbol</h1>
+    
+    {% if miFormulario.errors %} 
+    <p style="color: red;">Los datos son incorrectos</p>
+    {% endif %} 
+
+    <form action="" method="POST">{% csrf_token%} 
+    <table>
+
+        {{ miFormulario.as_table }}
+    <th>id</th>
+    <th>Nombre</th>
+    <th>integrantes del equipo</th>
+   
+    {% for futbol in futbol %}
+        <tr>
+            <td>{{futbol.id}}</td>
+            <td>{{futbol.nombre}}</td>
+            <td>{{futbol.nro_equipos}}</td>
+            <td><a href="{% url 'eliminar_futbol' futbol.id %}">Eliminar</a></td>
+            <td><a href="{% url 'editar_futbol' id_futbol %}">Editar</a></td>
+        </tr>
+    {% endfor %} 
+
+    </table>
+
+</form> 
+{% endblock %}
